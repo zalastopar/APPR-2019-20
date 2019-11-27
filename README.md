@@ -7,8 +7,16 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2019/20
 
 ## Analiza najboljših 250 filmov po IMDb
 
-Izbrali si boste temo, s katero se bo vaš projekt ukvarjal.
-Tukaj boste napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
+Analizirala bom najboljših 250 filmov po lestvici IMDb. Filme bom primerjala glede na:
+* leto izdaje
+* zvrst
+* proračun
+* oceno
+* dolžino
+* jezik
+* državo snemanja
+
+Podatke za analizo bom črpaka iz https://www.imdb.com/chart/top ter iz CSV datotek, ki so shranjene v mapi 'podatki_filmov'.
 
 ## Program
 
