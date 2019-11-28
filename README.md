@@ -16,7 +16,9 @@ Analizirala bom najboljših 250 filmov po lestvici IMDb. Filme bom primerjala gl
 * jezik
 * državo snemanja
 
-Podatke za analizo bom črpaka iz https://www.imdb.com/chart/top ter iz CSV datotek, ki so shranjene v mapi `podatki`.
+Cilj mojega projekta je ugotoviti katere komponente najbolj vplivajo na priljubljenost filma.
+
+Podatke za analizo bom črpaka iz https://www.imdb.com/chart/top ter iz CSV datoteke, ki je shranjena v mapi `podatki`.
 
 ## Program
 
