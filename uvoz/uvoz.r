@@ -1,6 +1,6 @@
 # 2. faza: Uvoz podatkov
 
-filmi1 <- read_csv("podatki/IMDB_Top250Engmovies2_OMDB_Detailed.csv", na = "N/A")[,c(2:3, 5:7, 12, 13, 19, 21, 34, 36)]
+filmi <- read_csv("podatki/IMDB_Top250Engmovies2_OMDB_Detailed.csv", na = "N/A")[,c(2:3, 5:7, 12, 13, 19, 21, 34, 36)]
 
 
 
