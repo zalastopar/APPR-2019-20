@@ -1,6 +1,6 @@
 ---
 title: "Poročilo pri predmetu Analiza podatkov s programom R"
-author: "Študent FMF"
+author: "Zala Stopar Špringer"
 output:
   html_document: default
   pdf_document:
@@ -26,9 +26,13 @@ source("lib/rstudio.r", encoding="UTF-8")
 
 # Izbira teme
 
-Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
+Za projektno nalogo pri APPR bom analizirala najboljših 250 filmov po IMDb lestvici. Pri projektu bom gledala leto izdaje, zvrst, proračun, donosnost, oceno, dolžino, jezik, državo snemanja, ...
+Cilj mojega projekta je ugotoviti katere komponente najbolj vplivajo na priljubljenost filma.
 
-![](slike/grb.png)
+
+![](slike/imdb-filmi-slika.jpg)
+
+vir: `https://exstreamist.com/imdb-top-250-movies-streaming-on-netflix-updated-monthly/`
 
 ***
 
@@ -38,26 +42,25 @@ Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
 source("uvoz/uvoz.r", encoding="UTF-8")
 ```
 
-Uvozili smo podatke o občinah v obliki CSV s statističnega urada ter v obliki HTML
-z Wikipedije. Podatke imamo v dveh razpredelnicah v obliki *tidy data*.
+Uvozili smo podatke o filmih v obliki CSV s spletnih strani Kaggle in data.world ter v obliki HTML s IMDB spletne strani. Podatke imamo eni razpredelnici v obliki *tidy data*.
 
-1. `druzine` - podatki o družinah za vsako občino
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `velikost.druzine` - spremenljivka: število otrok v družini (število: 1, 2, 3 ali 4, kjer zadnja vrednost pomeni 4 ali več),
-  - `stevilo.druzin` - meritev: število družin z ustreznim številom otrok v ustrezni občini (število).
+1. `Title` - naslov fima
+  - `Year` - spremenljivka: leto izdaje filma,
+  - `Releasd` - spremenljivka: datum izdaje filma,
+  - `Runtime` - meritev: dolžina filma,
+  - `Genre` - spremenljivka: zvrst filma,
+  - `Language` - spremenljivka: govoreči jeziki v filmu,
+  - `Country` - spremenljivka: država, iz katere film izhaja,
+  - `imdbRating` - meritev: ocena filma,
+  - `imdbID` - spemenljivka: številka filma, 
+  - `DVD` - spremenljivka: leto izdaje filma na DVD,
+  - `Production` - spremenljivka: filmski studio, ki je film izdal,
+  - `Budget` - spremenljivka: proračun za film,
+  - `Gross` - spremenljivka: donosnost filma v milijonih.
+  
 
-2. `obcine` - podatki o občinah
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `povrsina` - meritev: površina občine v km$^2$ (število),
-  - `prebivalci` - meritev: prebivalstvo občine (število),
-  - `gostota` - meritev: število prebivalcev na km$^2$ (število),
-  - `naselja` - meritev: število naselij v občini (število),
-  - `ustanovitev` - meritev: leto ustanovitve občine (število),
-  - `pokrajina` - meritev: pokrajina, ki ji občina pripada (neurejen faktor),
-  - `regija` - meritev: regija, ki ji občina pripada (neurejen faktor),
-  - `odcepitev` - meritev: podatki o občinah, od katerih se je občina odcepila (besedilo).
 
-**Opomba**: da bi razpredelnica `obcine` res bila v obliki *tidy data*, bi morali odstraniti stolpec `gostota` (saj je izpeljan iz stolpcev `povrsina` in `prebivalci`), podatke o pokrajinah pa bi morali premakniti v drugo razpredelnico, saj nekatere občine pripadajo dvema pokrajinama. Podobno bi morali narediti tudi s stolpcem `odcepitev`.
+
 
 Spodnji graf prikazuje porazdelitev števila naselij v občinah.
 
