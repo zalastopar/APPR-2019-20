@@ -1,13 +1,22 @@
 # 3. faza: Vizualizacija podatkov
 
-# Uvozimo zemljevid.
-zemljevid <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip", "OB",
-                             pot.zemljevida="OB", encoding="Windows-1250")
-levels(zemljevid$OB_UIME) <- levels(zemljevid$OB_UIME) %>%
-  { gsub("Slovenskih", "Slov.", .) } %>% { gsub("-", " - ", .) }
-zemljevid$OB_UIME <- factor(zemljevid$OB_UIME, levels=levels(obcine$obcina))
-zemljevid <- fortify(zemljevid)
+# Uvoz potrebnih knjižnic
+library(tmap)
+source("https://raw.githubusercontent.com/jaanos/APPR-2019-20/master/lib/uvozi.zemljevid.r")
 
-# Izračunamo povprečno velikost družine
-povprecja <- druzine %>% group_by(obcina) %>%
-  summarise(povprecje=sum(velikost.druzine * stevilo.druzin) / sum(stevilo.druzin))
+# Uvozimo zemljevid.
+zemljevid <- data("World")
+
+
+
+filmi$Country <- gsub("New Zealand", "Newzealand", filmi$Country)
+filmi$Country <- gsub(" ", "", filmi$Country)
+drzava <- filmi$Country %>% strapplyc("([[:alpha:]]+)")
+
+Title <- lapply(1:nrow(filmi), . %>% { rep(filmi$Title[.], length(drzava[[.]])) })
+
+drzave <- data.frame(Title=unlist(Title), drzava=unlist(drzava))
+
+a <- left_join(filmi[,-7], drzave, by  = "Title")
+a$drzava <- gsub("USA", "United States" , a$drzava) 
+a$drzava <- gsub("Newzealand", "New Zealand" , a$drzava) 

@@ -8,6 +8,7 @@ colnames(filmi2) <- "Budget"
 
 
 
+
 tabela <- cbind(filmi1, filmi2)
 
 filmi_gross <- NULL
@@ -23,7 +24,12 @@ for (i in seq(1, 250, 50)) {
 }
 filmi <- left_join(tabela, filmi_gross)
 
+filmi[,13] <- filmi[,13] * 1000000
+colnames(filmi)[which(names(filmi) == "Gross")] <- "Revenue"
 
-write.csv(filmi, "C:/Users/Marko/Documents/AMAT/analiza_filmov/APPR-2019-20/podatki/filmi.csv")
+filmi1 <-filmi1(Genre = unlist(Genre))
+
+
+# write.csv(filmi, "C:/Users/Marko/Documents/AMAT/analiza_filmov/APPR-2019-20/podatki/filmi.csv")
 
  

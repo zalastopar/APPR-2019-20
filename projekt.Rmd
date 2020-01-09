@@ -38,7 +38,7 @@ vir: `https://exstreamist.com/imdb-top-250-movies-streaming-on-netflix-updated-m
 
 # Obdelava, uvoz in čiščenje podatkov
 
-```{r uvoz, echo=FALSE, message=FALSE}
+```{r uvoz, echo=FALSE, message=FALSE, warning=FALSE}
 source("uvoz/uvoz.r", encoding="UTF-8")
 ```
 
@@ -55,8 +55,8 @@ Uvozili smo podatke o filmih v obliki CSV s spletnih strani Kaggle in data.world
   - `imdbID` - spemenljivka: številka filma, 
   - `DVD` - spremenljivka: leto izdaje filma na DVD,
   - `Production` - spremenljivka: filmski studio, ki je film izdal,
-  - `Budget` - spremenljivka: proračun za film,
-  - `Gross` - spremenljivka: donosnost filma v milijonih.
+  - `Budget` - meritev: proračun za film,
+  - `Gross` - meritev: donosnost filma v milijonih.
   
 
 
