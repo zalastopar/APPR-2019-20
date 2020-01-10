@@ -27,9 +27,32 @@ filmi <- left_join(tabela, filmi_gross)
 filmi[,13] <- filmi[,13] * 1000000
 colnames(filmi)[which(names(filmi) == "Gross")] <- "Revenue"
 
-filmi1 <-filmi1(Genre = unlist(Genre))
+
 
 
 # write.csv(filmi, "C:/Users/Marko/Documents/AMAT/analiza_filmov/APPR-2019-20/podatki/filmi.csv")
 
- 
+#čiščcenje
+
+#države
+filmi$Country <- gsub(" ", "", filmi$Country)
+drzava <- filmi$Country %>% strapplyc("([[:alpha:]]+)")
+Title <- lapply(1:nrow(filmi), . %>% { rep(filmi$Title[.], length(drzava[[.]])) })
+drzave <- data.frame(Title=unlist(Title), drzava=unlist(drzava))
+drzave <- left_join(filmi[1], drzave, by  = "Title")
+
+
+#zvrst
+zvrst <- filmi$Genre %>% strapplyc("([[:alpha:]]+)")
+Title <- lapply(1:nrow(filmi), . %>% { rep(filmi$Title[.], length(zvrst[[.]])) })
+zvrsti <- data.frame(Title=unlist(Title), Genre=unlist(zvrst))
+zvrsti <- left_join(filmi[1], zvrsti, by = "Title")
+
+#jezik
+jezik <- filmi$Language %>% strapplyc("([[:alpha:]]+)")
+Title <- lapply(1:nrow(filmi), . %>% { rep(filmi$Title[.], length(jezik[[.]])) })
+jeziki <- data.frame(Title=unlist(Title), Language=unlist(jezik))
+jeziki <- left_join(filmi[1], jeziki, by = "Title")
+
+#ostalo
+filmi <- filmi[,-c(5:7)]
