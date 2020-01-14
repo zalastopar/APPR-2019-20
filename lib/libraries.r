@@ -5,6 +5,7 @@ library(tidyr)
 library(shiny)
 library(xml2)
 library(proto)
+library(readr)
 
 options(gsubfn.engine="R")
 

@@ -38,8 +38,15 @@ colnames(filmi)[which(names(filmi) == "Gross")] <- "Revenue"
 filmi$Country <- gsub(" ", "", filmi$Country)
 drzava <- filmi$Country %>% strapplyc("([[:alpha:]]+)")
 Title <- lapply(1:nrow(filmi), . %>% { rep(filmi$Title[.], length(drzava[[.]])) })
-drzave <- data.frame(Title=unlist(Title), drzava=unlist(drzava))
+drzave <- data.frame(Title=unlist(Title), Country=unlist(drzava))
 drzave <- left_join(filmi[1], drzave, by  = "Title")
+drzave$Country <- gsub("([a-z])([A-Z])", "\\1 \\2", drzave$Country)
+drzave$Country <- gsub("USA", "United States", drzave$Country)
+drzave$Country <- gsub("UAE", "United Arab Emirates", drzave$Country)
+drzave$Country <- gsub("UK", "United Kingdom", drzave$Country)
+
+drzave1 <- data.frame(table(drzave$Country))
+
 
 
 #zvrst
@@ -47,6 +54,8 @@ zvrst <- filmi$Genre %>% strapplyc("([[:alpha:]]+)")
 Title <- lapply(1:nrow(filmi), . %>% { rep(filmi$Title[.], length(zvrst[[.]])) })
 zvrsti <- data.frame(Title=unlist(Title), Genre=unlist(zvrst))
 zvrsti <- left_join(filmi[1], zvrsti, by = "Title")
+
+zvrsti1 <- data.frame(table(zvrsti$Genre))
 
 #jezik
 jezik <- filmi$Language %>% strapplyc("([[:alpha:]]+)")
@@ -56,3 +65,6 @@ jeziki <- left_join(filmi[1], jeziki, by = "Title")
 
 #ostalo
 filmi <- filmi[,-c(5:7)]
+
+
+
