@@ -42,15 +42,12 @@ vir: `https://exstreamist.com/imdb-top-250-movies-streaming-on-netflix-updated-m
 source("uvoz/uvoz.r", encoding="UTF-8")
 ```
 
-Uvozili smo podatke o filmih v obliki CSV s spletnih strani Kaggle in data.world ter v obliki HTML s IMDB spletne strani. Podatke imamo eni razpredelnici v obliki *tidy data*.
+Uvozili smo podatke o filmih v obliki CSV s spletnih strani Kaggle in data.world ter v obliki HTML s IMDB spletne strani. Podatki so shranjenu v štirih razpredelnicah v obliki *tidy data*.
 
-1. `Title` - naslov fima
+1. tabela:
+  - `Title` - naslov fima
   - `Year` - spremenljivka: leto izdaje filma,
-  - `Releasd` - spremenljivka: datum izdaje filma,
   - `Runtime` - meritev: dolžina filma,
-  - `Genre` - spremenljivka: zvrst filma,
-  - `Language` - spremenljivka: govoreči jeziki v filmu,
-  - `Country` - spremenljivka: država, iz katere film izhaja,
   - `imdbRating` - meritev: ocena filma,
   - `imdbID` - spemenljivka: številka filma, 
   - `DVD` - spremenljivka: leto izdaje filma na DVD,
@@ -58,10 +55,17 @@ Uvozili smo podatke o filmih v obliki CSV s spletnih strani Kaggle in data.world
   - `Budget` - meritev: proračun za film,
   - `Gross` - meritev: donosnost filma v milijonih.
   
+2. tabela:
+  - `Title` - naslov fima
+  - `Country` - spremenljivka: država snemanja filma.
 
+3. tabela:
+  - `Title` - naslov fima
+  - `Genre` - spremenljivka: zvrst filma.
 
-
-
+4. tabela:
+  - `Title` - naslov fima
+  - `Language` - spremenljivka: govoreči jeziki v filmu.
 
 ***
 
