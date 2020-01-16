@@ -20,7 +20,26 @@ Cilj mojega projekta je ugotoviti katere komponente najbolj vplivajo na priljubl
 
 Podatke za analizo bom črpaka iz https://www.imdb.com/chart/top ter iz CSV datoteke, ki je shranjena v mapi `podatki`.
 
-Imam eno tabelo, ki vsebuje vse potrebne podatke. Vsaka vrstica pripada enemu filmu, po stolpcih pa so razvrščeni: leto izdaje, datum izdaje, dolžina filma, zvrst, govoreč jezik, država snemanja, IMDb ocena, datum izdaje filma na DVD, filmski studijo, ki je film izdal, proračun, dobiček, ki ga je film prinesel.
+Tabela 1 (filmi):
+* leto izdaje
+* dolžina filma 
+* IMDb ocena
+* datum izdaje filma na DVD
+* filmski studio, ki je film izdal
+* proračun
+* dobiček, ki ga je film pridesel
+
+Tabela 2 (drzave):
+* država snemanja
+
+Tabela 3 (jeziki):
+* govoreči jeziki
+
+Tabela 4 (zvrsti):
+* zvrsti filma
+
+
+
 
 ## Program
 
