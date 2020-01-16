@@ -25,12 +25,19 @@ theme_set(
 
 
 # Uvozimo zemljevid.
-zemljevid <- map_data('world')
 colnames(drzave1)[1]= "region"
+#source("https://raw.githubusercontent.com/jaanos/APPR-2019-20/master/lib/uvozi.zemljevid.r")
+#svet <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_countries.zip",
+                        # "ne_50m_admin_0_countries", encoding="UTF-8")
+
+#tm_shape(merge(svet, drzave1, by.x="region", by.y="region")) + tm_polygons("Freq")
+
+
+
 
 
 world_map <- map_data("world")
-b <- left_join(drzave1, world_map, by = "region")
+b <- full_join(drzave1, world_map, by = "region")
 
 c <- ggplot(b, aes(long, lat, group = group))+
   geom_polygon(aes(fill = Freq ), color = "white")+
@@ -50,7 +57,8 @@ print(graf)
 
 #Graf 2 - leto izdaje
 seznam2 <- data.frame(table(filmi$Year))
-  
+seznam <- filmi %>% group_by(Year) %>% tally()
+
 graf2 <- ggplot(seznam2) +  aes(x=Var1,y = Freq, fill=Freq) +geom_bar(stat = "identity") + 
   scale_fill_continuous(type = "viridis")  
 

@@ -7,7 +7,7 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
-runtime: shiny
+#runtime: shiny
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
@@ -71,19 +71,21 @@ Uvozili smo podatke o filmih v obliki CSV s spletnih strani Kaggle in data.world
 source("vizualizacija/vizualizacija.r", encoding="UTF-8")
 ```
 
+```{r graf1, echo=FALSE, message=FALSE, warning=FALSE}
+graf
+```
+
+
 Spodnji zemljevid prikazuje povprečno velikost družine za vsako občino.
 
 ```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid povprečnega števila otrok v družini'}
-ggplot(b, aes(long, lat, group = group))+
-  geom_polygon(aes(fill = Freq ), color = "white")+
-  scale_fill_gradient2(low = "blue", mid = "blue", high = "red",
-                       midpoint = 10)
+c
 ```
 
 ***
 
 
 
-```{r shiny, echo=FALSE}
-shinyAppDir("shiny", options=list(width="100%", height=600))
-```
+#```{r shiny, echo=FALSE}
+#shinyAppDir("shiny", options=list(width="100%", height=600))
+#```
