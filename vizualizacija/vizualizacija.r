@@ -18,10 +18,6 @@ library(sf)
 library(stringr)
 library(scales)
 
-require(viridis)
-theme_set(
-  theme_void()
-)
 
 
 # Uvozimo zemljevid.
@@ -41,25 +37,25 @@ b <- full_join(drzave1, world_map, by = "region")
 
 c <- ggplot(b, aes(long, lat, group = group))+
   geom_polygon(aes(fill = Freq ), color = "white")+
-  scale_fill_gradient2(low = "blue", mid = "blue", high = "red",
-                       midpoint = 10)
-plot(c)
+  scale_fill_gradient2(low = "blue", mid = "blue", high = "red",midpoint = 10) + 
+  theme_void()
+plot(c, axes=FALSE)
 
 
 
 # Graf 1 - leto izdaje in rating
-graf <- ggplot(filmi) + aes(x=imdbRating, y=Budget, size=imdbRating, color=Budget) + geom_point() + 
+graf1 <- ggplot(filmi) + aes(x=imdbRating, y=Budget, size=imdbRating, color=Budget) + geom_point() + 
   scale_color_gradient2(midpoint=2000000, low="white", mid="blue",high="red", space ="Lab" )
 
-print(graf)
+print(graf1)
 
                 
 
 #Graf 2 - leto izdaje
 seznam2 <- data.frame(table(filmi$Year))
-seznam <- filmi %>% group_by(Year) %>% tally()
+colnames(seznam2) <- c("Year", "Frequency")
 
-graf2 <- ggplot(seznam2) +  aes(x=Var1,y = Freq, fill=Freq) +geom_bar(stat = "identity") + 
+graf2 <- ggplot(seznam2) +  aes(x=Year,y = Frequency, fill=Frequency) +geom_bar(stat = "identity") + 
   scale_fill_continuous(type = "viridis")  
 
 

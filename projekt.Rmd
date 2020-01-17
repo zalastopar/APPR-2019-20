@@ -72,7 +72,7 @@ source("vizualizacija/vizualizacija.r", encoding="UTF-8")
 ```
 
 ```{r graf1, echo=FALSE, message=FALSE, warning=FALSE}
-graf
+graf1
 ```
 
 

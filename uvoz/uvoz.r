@@ -48,10 +48,12 @@ drzave1 <- data.frame(table(drzave$Country))
 
 
 #zvrst
+filmi$Genre <- gsub("-", "", filmi$Genre)
 zvrst <- filmi$Genre %>% strapplyc("([[:alpha:]]+)")
 Title <- lapply(1:nrow(filmi), . %>% { rep(filmi$Title[.], length(zvrst[[.]])) })
 zvrsti <- data.frame(Title=unlist(Title), Genre=unlist(zvrst))
 zvrsti <- left_join(filmi[1], zvrsti, by = "Title")
+
 
 zvrsti1 <- data.frame(table(zvrsti$Genre))
 
