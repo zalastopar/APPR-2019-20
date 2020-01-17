@@ -1,6 +1,6 @@
 # 2. faza: Uvoz podatkov
 
-filmi1 <- read_csv("podatki/IMDB_Top250Engmovies2_OMDB_Detailed.csv", na = "N/A")[,c(2:3, 5:7, 12, 13, 19, 21, 34, 36)]
+filmi1 <- read_csv("podatki/IMDB_Top250Engmovies2_OMDB_Detailed.csv", na = "N/A")[,c(2:3, 6:7, 12, 13, 19, 21, 34, 36)]
 
 
 filmi2 <- read_csv("podatki/movies_budget.csv", na = "N/A")[, 9]
@@ -24,7 +24,7 @@ for (i in seq(1, 250, 50)) {
 }
 filmi <- left_join(tabela, filmi_gross)
 
-filmi[,13] <- filmi[,13] * 1000000
+filmi[,12] <- filmi[,12] * 1000000
 colnames(filmi)[which(names(filmi) == "Gross")] <- "Revenue"
 
 
@@ -38,12 +38,11 @@ colnames(filmi)[which(names(filmi) == "Gross")] <- "Revenue"
 filmi$Country <- gsub(" ", "", filmi$Country)
 drzava <- filmi$Country %>% strapplyc("([[:alpha:]]+)")
 Title <- lapply(1:nrow(filmi), . %>% { rep(filmi$Title[.], length(drzava[[.]])) })
-drzave <- data.frame(Title=unlist(Title), Country=unlist(drzava))
+drzave <- data.frame(Title=unlist(Title), region=unlist(drzava))
 drzave <- left_join(filmi[1], drzave, by  = "Title")
-drzave$Country <- gsub("([a-z])([A-Z])", "\\1 \\2", drzave$Country)
-drzave$Country <- gsub("UAE", "United Arab Emirates", drzave$Country)
+drzave$region <- gsub("([a-z])([A-Z])", "\\1 \\2", drzave$region)
+drzave$region <- gsub("UAE", "United Arab Emirates", drzave$region)
 
-drzave1 <- data.frame(table(drzave$Country))
 
 
 
@@ -55,7 +54,7 @@ zvrsti <- data.frame(Title=unlist(Title), Genre=unlist(zvrst))
 zvrsti <- left_join(filmi[1], zvrsti, by = "Title")
 
 
-zvrsti1 <- data.frame(table(zvrsti$Genre))
+#zvrsti1 <- data.frame(table(zvrsti$Genre))
 
 #jezik
 jezik <- filmi$Language %>% strapplyc("([[:alpha:]]+)")
@@ -64,7 +63,8 @@ jeziki <- data.frame(Title=unlist(Title), Language=unlist(jezik))
 jeziki <- left_join(filmi[1], jeziki, by = "Title")
 
 #ostalo
-filmi <- filmi[,-c(5:7)]
-
+#filmi <- filmi[,-c(5:7)]
+dolzina <- filmi$Runtime %>% str_match_all("[0-9]+") %>% unlist %>% as.numeric
+filmi$Runtime <- dolzina
 
 

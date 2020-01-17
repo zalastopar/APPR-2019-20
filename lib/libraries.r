@@ -6,6 +6,7 @@ library(shiny)
 library(xml2)
 library(proto)
 library(readr)
+library(stringr)
 
 options(gsubfn.engine="R")
 

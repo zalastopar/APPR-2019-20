@@ -70,21 +70,32 @@ Uvozili smo podatke o filmih v obliki CSV s spletnih strani Kaggle in data.world
 ***
 
 # Analiza in vizualizacija podatkov
-
 ```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
 source("vizualizacija/vizualizacija.r", encoding="UTF-8")
 ```
 
-```{r graf1, echo=FALSE, message=FALSE, warning=FALSE}
+
+Spodnji zemljevid prikazuje države v katerih so bili filmi snemani in koliko jih je bilo posnetih v posamezni državi.
+V sivo obrarvanih državah ni bilo posnetega nobenega filma.
+
+```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zmeljevid držav snemanja filmov'}
+c
+``` 
+
+
+Graf, ki prikazuje povezave med oceno filma, proračunom in dolžino.
+
+```{r graf1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='Graf proračuna, dolžine in ocene filma'}
 graf1
 ```
 
+Spodnji graf prikazuje število filmov, posnetih v posameznem letu.
 
-Spodnji zemljevid prikazuje povprečno velikost družine za vsako občino.
-
-```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid povprečnega števila otrok v družini'}
-c
+```{r graf2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='Graf posnetih filmov po letih'}
+graf2
 ```
+
+
 
 ***
 
