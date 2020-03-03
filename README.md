@@ -24,7 +24,6 @@ Tabela 1 (filmi):
 * leto izdaje
 * dolžina filma 
 * IMDb ocena
-* datum izdaje filma na DVD
 * filmski studio, ki je film izdal
 * proračun
 * dobiček, ki ga je film pridesel

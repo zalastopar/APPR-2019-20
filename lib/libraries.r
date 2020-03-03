@@ -1,12 +1,15 @@
 library(knitr)
-library(rvest)
+library(readr)
 library(gsubfn)
 library(tidyr)
 library(shiny)
 library(xml2)
 library(proto)
-library(readr)
 library(stringr)
+library(tmap)
+library(mosaic)
+library(rvest)
+
 
 options(gsubfn.engine="R")
 

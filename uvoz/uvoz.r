@@ -24,7 +24,7 @@ for (i in seq(1, 250, 50)) {
 }
 filmi <- left_join(tabela, filmi_gross)
 
-filmi[,12] <- filmi[,12] * 1000000
+filmi[,11] <- round(filmi[,11] / 1000000, 2)
 colnames(filmi)[which(names(filmi) == "Gross")] <- "Revenue"
 
 
@@ -62,9 +62,48 @@ Title <- lapply(1:nrow(filmi), . %>% { rep(filmi$Title[.], length(jezik[[.]])) }
 jeziki <- data.frame(Title=unlist(Title), Language=unlist(jezik))
 jeziki <- left_join(filmi[1], jeziki, by = "Title")
 
+
+#filmski studijo
+
+paramount <- grep("Paramount", ignore.case = TRUE, filmi$Production)
+filmi$Production[paramount] <- "Paramount Pictures"
+
+warner <- grep("Warner", ignore.case = TRUE, filmi$Production)
+filmi$Production[warner] <- "Warner Bros."
+
+universal <- grep("Universal", ignore.case = TRUE, filmi$Production)
+filmi$Production[universal] <- "Universal Pictures"
+
+fox <- grep("century", ignore.case = TRUE, filmi$Production)
+filmi$Production[fox] <- "20th Century Fox"
+
+dream <- grep("dream", ignore.case = TRUE, filmi$Production)
+filmi$Production[dream] <- "Dreamworks"
+
+united <- grep("united", ignore.case = TRUE, filmi$Production)
+filmi$Production[united] <- "United Artists"
+
+orion <- grep("orion", ignore.case = TRUE, filmi$Production)
+filmi$Production[orion] <- "Orion Pictures"
+
+buena <- grep("buena", ignore.case = TRUE, filmi$Production)
+filmi$Production[buena] <- "Buena Vista"
+
+sony <- grep("sony", ignore.case = TRUE, filmi$Production)
+filmi$Production[sony] <- "Sony Pictures"
+
+mgm <- grep("mgm", ignore.case = TRUE, filmi$Production)
+filmi$Production[mgm] <- "MGM"
+
+disney <- grep("disney", ignore.case = TRUE, filmi$Production)
+filmi$Production[disney] <- "Walt Disney Pictures"
+
+disney <- grep("disney", ignore.case = TRUE, filmi$Production)
+filmi$Production[disney] <- "Walt Disney Pictures"
+
 #ostalo
-#filmi <- filmi[,-c(5:7)]
 dolzina <- filmi$Runtime %>% str_match_all("[0-9]+") %>% unlist %>% as.numeric
 filmi$Runtime <- dolzina
+filmi <- filmi[-c(4:6, 9)]
 
 
