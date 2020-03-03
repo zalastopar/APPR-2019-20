@@ -59,9 +59,9 @@ zvrsti_dolocene <- zvrsti %>% filter(Genre %in% zanri_doloceni$Var1)
 zvrsti_dolocene <- left_join(filmi, zvrsti_dolocene, by  = "Title")[c(1, 2, 4, 9)]
 zvrsti_dolocene <- na.omit(zvrsti_dolocene)
 
-graf3 <- ggplot(zvrsti_dolocene,  aes(x = Year, y=imdbRating, color = Genre)) + 
-  geom_point(size = 2) + scale_color_manual(values=c("red", "orange", "yellow", "green", "royalblue","plum"))
 
+graf3 <- ggplot(zvrsti_dolocene,  aes(x = Year, y=imdbRating, color=Genre)) + 
+  geom_point(size = 2) + scale_color_manual(values=c("red", "orange", "yellow", "green", "royalblue","plum"))
 
 
 

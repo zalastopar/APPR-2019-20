@@ -13,8 +13,6 @@ shinyUI(fluidPage(
   mainPanel(
     h4("Graf najboljših 10 filmov v izbrani kategoriji"),
     plotOutput("graf1"),
-
-                
     plotOutput("graf2")
       )
   
