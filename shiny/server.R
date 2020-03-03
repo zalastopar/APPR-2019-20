@@ -5,16 +5,18 @@ shinyServer(function(input, output, session) {
   output$graf1 <- renderPlot({
     colm = as.numeric(input$kategorija)
     top10 <- head(filmi[order(filmi[,colm], decreasing = TRUE),], 10)
-    
+
     ggplot(top10, aes(x=factor(Title, level =Title), y=top10[,colm]), group=1) + 
       theme(axis.text.x = element_text(angle = 90, hjust = 1))  +
       geom_col(color="white", fill="red") + labs(x = "Title", y ="") + 
       scale_color_gradient(low="blue", high="red") + 
       coord_cartesian(ylim = c(min(top10[,colm])*(1 - 1/50), max(top10[,colm])*(1 + 1/50)))
+
   }
   )
   
   output$graf2 <- renderPlot({
+
     oznaka <- as.numeric(input$izbira)
     colm = as.numeric(input$kategorija)
     top10 <- head(filmi[order(filmi[,colm], decreasing = TRUE),], 10)
@@ -48,6 +50,7 @@ shinyServer(function(input, output, session) {
   
  
   
+
   
 })
   

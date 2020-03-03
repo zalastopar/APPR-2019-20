@@ -20,8 +20,7 @@ library(maps)
 
 
 
-
-# Zemljevid.
+# Zemljevid
 world_map <- map_data("world")
 a <- data.frame(table(drzave$region))
 colnames(a)[1] <- "region"
@@ -43,7 +42,7 @@ graf1 <- ggplot(filmi) + aes(x=imdbRating, y=Revenue, color=Runtime) + geom_poin
 
 
 
-colours = #Graf 2 - leto izdaje
+#Graf 2 - leto izdaje
 seznam2 <- data.frame(table(filmi$Year))
 colnames(seznam2) <- c("Year", "Frequency")
 
@@ -52,15 +51,17 @@ graf2 <- ggplot(seznam2,  aes(x=Year,y = Frequency)) + geom_col(fill="red", colo
  
   
 
-  #Graf 3 - zanr, leto, rating
+#Graf 3 - zanr, leto, rating
 zanri <- data.frame(table(zvrsti$Genre))
 zanri_doloceni <- zanri %>% filter(Freq >= 30)
 zvrsti_dolocene <- zvrsti %>% filter(Genre %in% zanri_doloceni$Var1)
+
 zvrsti_dolocene <- left_join(filmi, zvrsti_dolocene, by  = "Title")[c(1, 2, 4, 9)]
 zvrsti_dolocene <- na.omit(zvrsti_dolocene)
 
 graf3 <- ggplot(zvrsti_dolocene,  aes(x = Year, y=imdbRating, color = Genre)) + 
   geom_point(size = 2) + scale_color_manual(values=c("red", "orange", "yellow", "green", "royalblue","plum"))
+
 
 
 

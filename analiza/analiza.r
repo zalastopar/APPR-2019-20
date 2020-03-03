@@ -1,9 +1,9 @@
 # 4. faza: Analiza podatkov
 
-#analiza1 - revenue, budget
-rev <- head(filmi[c(1, 8)], 30)
+#analiza - revenue,budget
+rev <- head(filmi[c(1, 12)], 30)
 colnames(rev)[2] <-"var"
-bud <- head(filmi[c(1, 7)], 30)
+bud <- head(filmi[c(1, 11)], 30)
 colnames(bud)[2] <- "var"
 
 

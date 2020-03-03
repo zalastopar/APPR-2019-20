@@ -94,12 +94,17 @@ Spodnji graf prikazuje število filmov, posnetih v posameznem letu.
 graf2
 ```
 
+
 Vsaka točka v naslednjem grafu prikazuje zvrst filma, leto, v katerem je bil posnet, ter oceno. Prikazanih je samo šest najbolje zastopanih zvrsti.
+
+
 ```{r graf3, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf zvrsti, ocene in leta izdaje'}
 graf3
 ```
 
+
 Spodnji graf prikazuje filme, ki pripadajo filskim studijem, ki so posneli vsaj 15 filmov od najboljših 250. 
+
 ```{r graf4, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf ocene, proračuna in filskih studijev'}
 graf4
 ```
