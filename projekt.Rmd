@@ -7,7 +7,7 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
-#runtime: shiny
+runtime: shiny
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
@@ -85,22 +85,44 @@ c
 
 Graf, ki prikazuje povezave med oceno filma, proračunom in dolžino.
 
-```{r graf1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='Graf proračuna, dolžine in ocene filma'}
+```{r graf1, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf proračuna, dolžine in ocene filma'}
 graf1
 ```
 
 Spodnji graf prikazuje število filmov, posnetih v posameznem letu.
 
-```{r graf2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='Graf posnetih filmov po letih'}
+```{r graf2, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf posnetih filmov po letih'}
 graf2
 ```
 
+Vsaka točka v naslednjem grafu prikazuje zvrst filma, leto, v katerem je bil posnet, ter ocena. Prikazanih je samo šest najbolje zastopanih zvrsti.
+```{r graf3, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf zvrsti, ocene in leta izdaje'}
+graf3
+```
 
+Spodnji graf prikazuje filme, ki pripadajo filskim studijem, ki so posneli vsaj 15 filmov, ki so med najboljšimi 250 
+```{r graf4, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf ocene, proračuna in filskih studijev'}
+graf4
+```
+
+Iz naslednjega grafa lahko razberemo zastopanost govorečih jezikov v najboljših 250 filmih.
+```{r graf5, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf govorečih jezikov v filmih'}
+graf5
+```
+
+***
+# Napredna analiza podatkov
+```{r analiza, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+source("analiza/analiza.r", encoding="UTF-8")
+```
+Spodnji graf prikazuje povezavo med prihodkom in proračunom za najboljših 30 filmov.
+
+```{r analiza1, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf prihodkov in proračuna'}
+analiza1  
+```
 
 ***
 
-
-
-#```{r shiny, echo=FALSE}
-#shinyAppDir("shiny", options=list(width="100%", height=600))
-#```
+```{r shiny, echo=FALSE}
+shinyAppDir("shiny", options=list(width="100%", height=600))
+```

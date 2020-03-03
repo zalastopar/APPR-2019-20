@@ -1,11 +1,20 @@
 # 4. faza: Analiza podatkov
 
-podatki <- obcine %>% transmute(obcina, povrsina, gostota,
-                                gostota.naselij=naselja/povrsina) %>%
-  left_join(povprecja, by="obcina")
-row.names(podatki) <- podatki$obcina
-podatki$obcina <- NULL
+#analiza1 - revenue, budget
+rev <- head(filmi[c(1, 12)], 30)
+colnames(rev)[2] <-"var"
+bud <- head(filmi[c(1, 11)], 30)
+colnames(bud)[2] <- "var"
 
-# Število skupin
-n <- 5
-skupine <- hclust(dist(scale(podatki))) %>% cutree(n)
+
+analiza1 <- ggplot(NULL, aes(Title, var)) + 
+  geom_bar(aes(fill="bud"), data = bud, alpha = 0.5, stat = "identity") + 
+  geom_bar(aes(fill="rev"), data = rev, alpha = 0.5, stat = "identity") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
+  labs(y="") + scale_fill_discrete(name = "", labels = c("Budget", "Revenue"))
+  
+
+
+
+
+

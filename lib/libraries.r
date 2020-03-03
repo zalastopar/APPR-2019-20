@@ -7,6 +7,7 @@ library(xml2)
 library(proto)
 library(readr)
 library(stringr)
+library(mosaic)
 
 options(gsubfn.engine="R")
 
