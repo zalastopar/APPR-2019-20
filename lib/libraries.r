@@ -9,6 +9,7 @@ library(stringr)
 library(tmap)
 library(mosaic)
 library(rvest)
+library(gridExtra)
 
 
 options(gsubfn.engine="R")

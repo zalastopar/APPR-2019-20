@@ -76,6 +76,7 @@ source("vizualizacija/vizualizacija.r", encoding="UTF-8")
 
 Spodnji zemljevid prikazuje države v katerih so bili filmi snemani in koliko jih je bilo posnetih v posamezni državi.
 V sivo obrarvanih državah ni bilo posnetega nobenega filma.
+Kot po pričakovanjih, je bilo največ filmiv posnetih v ZDA, drugo največ pa v Veliki Britaniji. Zanimivo je, da je v večih evropskih državah bil posnet vsaj en film, medtem ko jih v Južni Ameriki ni bilo posnetih nič in le nekaj v Afriki in Aziji.
 
 ```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zmeljevid držav snemanja filmov', warning=FALSE}
 c
@@ -83,12 +84,15 @@ c
 
 
 Graf, ki prikazuje povezave med oceno filma, proračunom in dolžino.
+Večina filmov je dolga okoli 100 min. Film z največjih dobičkom ter film z najboljšo oceno pa sta oba dolga okoli 150 min.
+Razberemo lahko, da donosnost filma ni nujno odvisna od dolžine ali ocene. Med filmi z najnižim dobičkom imamo filme vseh dolžin, od najkrajših do najdaljših. Prav tako je med nijimi nekaj najbolje ocenjenih filmov in veliko filmov z oceno nižjo od 8,5.
 
 ```{r graf1, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf proračuna, dolžine in ocene filma'}
 graf1
 ```
 
 Spodnji graf prikazuje število filmov, posnetih v posameznem letu.
+Vidimo lahko, da je med top250 zelo veliko filmov, ki so bili posneti v zadnjih 20 letih. Največ pa jih je bilo posnetih v letu 1995.
 
 ```{r graf2, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf posnetih filmov po letih'}
 graf2
@@ -96,6 +100,7 @@ graf2
 
 
 Vsaka točka v naslednjem grafu prikazuje zvrst filma, leto, v katerem je bil posnet, ter oceno. Prikazanih je samo šest najbolje zastopanih zvrsti.
+Jasno razvidno je, da je drama najbolj popularna zvrst, veliko pa je tudi trilerjev. Med rezultati pa je zlo malo akcijskih filmov ter kriminalk.
 
 
 ```{r graf3, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf zvrsti, ocene in leta izdaje'}
@@ -104,12 +109,16 @@ graf3
 
 
 Spodnji graf prikazuje filme, ki pripadajo filskim studijem, ki so posneli vsaj 15 filmov od najboljših 250. 
+Zanimivo je, da je film z največjim proračunom izdal 20th Century Fox, med tem ko so imeli vsi ostali filmi posneti v tem studiju dokaj majhen proračun.  Najbolje ocenjen film je bil posnet v studijih Paramount Pictures, prav tako pa ima tudi enega manjših proračunov.
+Vidimo lahko, da imajo vsi filmi United Artists nižji proračun ter približno enako oceno.
 
 ```{r graf4, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf ocene, proračuna in filskih studijev'}
 graf4
 ```
 
 Iz naslednjega grafa lahko razberemo zastopanost govorečih jezikov v najboljših 250 filmih.
+Ni presenetljivo, da je angleščina najpogosteje govorjen jezik v najboljših 250 filmih.
+Med ostalimi jeziki se največkrat pojavijo še francoščina, nemščina, španščina in italijanščina.
 ```{r graf5, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf govorečih jezikov v filmih'}
 graf5
 ```

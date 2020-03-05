@@ -1,16 +1,32 @@
 # 4. faza: Analiza podatkov
 
-#analiza - revenue,budget
 
+#Revenue, Budget
+analiza1 <- ggplot(filmi, aes(x=Budget, y=Revenue)) +
+  geom_point() + geom_smooth() + 
+  scale_x_log10() + ylim(0, max(filmi$Revenue))
 
-analiza1 <- ggplot(head(filmi, 100), aes(Title, group=1)) + 
-  geom_point(aes(y = Budget, color = "Budget")) +
-  geom_point(aes(y = Revenue, color = "Revenue")) + 
-  scale_colour_manual("", breaks = c("Budget", "Revenue"), values = c("red", "blue")) + 
-  theme(axis.text.x = element_blank()) + labs(x = "Movies") +
-  geom_smooth(aes(y = Budget), color = "red", span = 0.3, fill = "red", alpha = 0.2)+
-  geom_smooth(aes(y = Revenue), color = "blue", span = 0.3, fill = "blue", alpha = 0.2)
+print(analiza1)
 
+#Revenue, Rating
+analiza2 <- ggplot(filmi, aes(x = imdbRating, y = Revenue)) +
+  geom_point() + geom_smooth()
 
+print(analiza2)
 
+#Runtime, Budget
+analiza3 <- ggplot(filmi, aes(x = Budget, y = Runtime)) +
+  geom_point() + geom_smooth() + xlim(0, max(filmi$Budget)) + 
+  scale_x_log10()
+  
+print(analiza3)
 
+#Year, rating
+analiza4 <- ggplot(filmi, aes(x=imdbRating, y= Year)) + 
+  geom_point() + geom_smooth()
+
+print(analiza4)
+
+analiza5 <- grid.arrange(analiza1, analiza2, analiza3, analiza4)
+
+print(analiza5)
