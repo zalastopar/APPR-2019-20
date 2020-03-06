@@ -61,7 +61,7 @@ zvrsti_dolocene <- na.omit(zvrsti_dolocene)
 
 
 graf3 <- ggplot(zvrsti_dolocene,  aes(x = Year, y=imdbRating, color=Genre)) + 
-  geom_point(size = 2) + scale_color_manual(values=c("red", "orange", "yellow", "green", "royalblue","plum"))
+  geom_point(size = 2) + scale_color_manual(values=c("red", "orange", "yellow", "green", "royalblue","deeppink"))
 
 
 
@@ -70,7 +70,7 @@ g4 <- data.frame(table(filmi$Production))
 g4 <- g4 %>% filter(Freq >=15)
   
 graf4 <- ggplot(filmi %>% filter(Production %in% g4$Var1),aes(x = imdbRating, y = Budget, color = Production)) + 
-  geom_point(size = 3) + scale_color_manual(values=c("red", "yellow", "green", "royalblue","pink")) + 
+  geom_point(size = 3) + scale_color_manual(values=c("red", "yellow", "green", "royalblue", "deeppink")) + 
   labs(y = "Budget [mio]")
 
 #Graf 5 - jezik

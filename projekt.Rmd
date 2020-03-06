@@ -83,11 +83,11 @@ c
 ``` 
 
 
-Graf, ki prikazuje povezave med oceno filma, proračunom in dolžino.
-Večina filmov je dolga okoli 100 min. Film z največjih dobičkom ter film z najboljšo oceno pa sta oba dolga okoli 150 min.
+Graf, ki prikazuje povezave med oceno filma, prihodkom in dolžino.
+Večina filmov je dolgih okoli 100 min. Film z največjih dobičkom ter film z najboljšo oceno pa sta oba dolga okoli 150 min.
 Razberemo lahko, da donosnost filma ni nujno odvisna od dolžine ali ocene. Med filmi z najnižim dobičkom imamo filme vseh dolžin, od najkrajših do najdaljših. Prav tako je med nijimi nekaj najbolje ocenjenih filmov in veliko filmov z oceno nižjo od 8,5.
 
-```{r graf1, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf proračuna, dolžine in ocene filma'}
+```{r graf1, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf prihodka, dolžine in ocene filma'}
 graf1
 ```
 
@@ -128,9 +128,13 @@ graf5
 ```{r analiza, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
 source("analiza/analiza.r", encoding="UTF-8")
 ```
-Spodnji graf prikazuje povezavo med prihodkom in proračunom ter povezavo med dolžino filma ter proračunom.
 
-```{r analiza5, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Graf prihodkov in proračuna'}
+Graf prikazuje povezavo med prihodkom in proračunom ter povezavo med dolžino filma ter proračunom.
+Na zgornjem grafu lahko vidimo, da prihodek ni zelo odvisen od proračuna. Ne gledena višino proračuna je dobiček večinoma pod 200 mio dolarjev. Seveda je tudi nekaj izjem, ki imajo visok tako prihodek, kot tudi proračun.
+Tudi na spodnjem grafu lahko opazimo, da dolžina filma ni ravno odvisna od proračuna. Veliko je krajših filmov, ki imajo večji proračun od daljših.
+
+
+```{r analiza5, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Grafa prihodkov in proračuna ter dolžine filma in proračuna'}
 analiza5  
 ```
 
@@ -139,3 +143,18 @@ analiza5
 ```{r shiny, echo=FALSE}
 shinyAppDir("shiny", options=list(width="100%", height=600))
 ```
+
+
+***
+
+# Zaključek
+
+
+Raziskovala sem kako na priljubljenost film vplivajo leto izdaje, dolžina filma, filmski studio, proračun, prihodek, država snemanja, govoreči jeziki ter žanr filma.
+
+Ugotovila sem, da je največ filmov posnetih v ZDA, zato ni presenetljivo, da je najpogosteje uporabljen jezik angleščina. Med najbolj priljubljene zvrsti spadajo drama, komedija in triler. Veliko več je filmov, ki so bili posneti v zadnjih 30 letih. Filmski studii, ki so posneli največ priljubljenih filmov so United Artists, 20th Century Fox, Warner Bros. in Paramount pictures.
+
+Iz grafov je razvidno, da ocena filma ni odvisna od dobička, pa tudi ne od proračuna ali dolžine filma. Če so filmski sudii v snemaje filma vložili veliko denarja se to ne kaže v dolžini filma, prav tako pa tudi dobiček ni nujno velik, če je začetni proračun visok.
+
+Z mojo raziskavo sem ugotovila, da samo s statističnimi podatki ni možno dobiti recepta za najboljši film. Veliko je faktorjev, ki vplivajo na kakovost filma in jih je težko analizirati, kot so zanimiva zgodba, dobri igralci, edinstvena glasba, lepi kostumi ... Težko je najti popolno kombinacijo, ki bi skupaj sestavile film, zanimiv za ponovne oglede.
+
