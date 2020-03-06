@@ -17,6 +17,3 @@ analiza3 <- ggplot(filmi, aes(x = Budget, y = Runtime)) +
 
 
 
-
-analiza5 <- grid.arrange(analiza1, analiza3, nrow=2)
-

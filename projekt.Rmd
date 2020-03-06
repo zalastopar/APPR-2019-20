@@ -134,8 +134,8 @@ Na zgornjem grafu lahko vidimo, da prihodek ni zelo odvisen od proračuna. Ne gl
 Tudi na spodnjem grafu lahko opazimo, da dolžina filma ni ravno odvisna od proračuna. Veliko je krajših filmov, ki imajo večji proračun od daljših.
 
 
-```{r analiza5, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Grafa prihodkov in proračuna ter dolžine filma in proračuna'}
-analiza5  
+```{r analiza1, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, fig.cap='Grafa prihodkov in proračuna ter dolžine filma in proračuna'}
+grid.arrange(analiza1, analiza3, nrow=2)
 ```
 
 ***
