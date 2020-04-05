@@ -4,7 +4,6 @@
 library(tmap)
 library(ggplot2)
 library(rgdal)
-library(rgeos)
 library(magrittr)
 library(stringr)
 library(dplyr)

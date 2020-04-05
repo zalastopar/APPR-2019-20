@@ -8,7 +8,6 @@ colnames(filmi2) <- "Budget"
 
 
 
-
 tabela <- cbind(filmi1, filmi2)
 
 filmi_gross <- NULL
@@ -36,30 +35,23 @@ colnames(filmi)[which(names(filmi) == "Gross")] <- "Revenue"
 
 #države
 filmi$Country <- gsub(" ", "", filmi$Country)
-drzava <- filmi$Country %>% strapplyc("([[:alpha:]]+)")
-Title <- lapply(1:nrow(filmi), . %>% { rep(filmi$Title[.], length(drzava[[.]])) })
-drzave <- data.frame(Title=unlist(Title), region=unlist(drzava))
-drzave <- left_join(filmi[1], drzave, by  = "Title")
+drzave <- filmi %>% select(Title, region = Country)
+drzave <- separate_rows(drzave, region, sep = ",")
 drzave$region <- gsub("([a-z])([A-Z])", "\\1 \\2", drzave$region)
 drzave$region <- gsub("UAE", "United Arab Emirates", drzave$region)
 
 
-
-
 #zvrst
 filmi$Genre <- gsub("-", "", filmi$Genre)
-zvrst <- filmi$Genre %>% strapplyc("([[:alpha:]]+)")
-Title <- lapply(1:nrow(filmi), . %>% { rep(filmi$Title[.], length(zvrst[[.]])) })
-zvrsti <- data.frame(Title=unlist(Title), Genre=unlist(zvrst))
-zvrsti <- left_join(filmi[1], zvrsti, by = "Title")
-
+filmi$Genre <- gsub(" ", "", filmi$Genre)
+zvrsti <- filmi %>% select(Title, Genre)
+zvrsti <- separate_rows(zvrsti, Genre, sep = ",")
 
 
 #jezik
-jezik <- filmi$Language %>% strapplyc("([[:alpha:]]+)")
-Title <- lapply(1:nrow(filmi), . %>% { rep(filmi$Title[.], length(jezik[[.]])) })
-jeziki <- data.frame(Title=unlist(Title), Language=unlist(jezik))
-jeziki <- left_join(filmi[1], jeziki, by = "Title")
+filmi$Language <- gsub(" ", "", filmi$Language)
+jeziki <- filmi %>% select(Title, Language)
+jeziki <- separate_rows(jeziki, Language, sep = ",")
 
 
 
@@ -94,9 +86,6 @@ filmi$Production[sony] <- "Sony Pictures"
 
 mgm <- grep("mgm", ignore.case = TRUE, filmi$Production)
 filmi$Production[mgm] <- "MGM"
-
-disney <- grep("disney", ignore.case = TRUE, filmi$Production)
-filmi$Production[disney] <- "Walt Disney Pictures"
 
 disney <- grep("disney", ignore.case = TRUE, filmi$Production)
 filmi$Production[disney] <- "Walt Disney Pictures"
